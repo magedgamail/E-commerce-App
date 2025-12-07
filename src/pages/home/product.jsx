@@ -3,11 +3,13 @@ import { formatMoney } from "../../Utils/Money";
 import axios from "axios";
 import CheckmarkIcon from '../../assets/images/icons/cart-icon.png'; 
 
+const RAILWAY_API_BASE_URL = 'https://ecommerce-backend-production-c5c1.up.railway.app';
+
 export function Product({product, loadCart}) {
     const [quantity, setQauntity] = useState(1);
     const [showAddedMessage, setShowAddedMessage] = useState(false)
     const addToCart = async () => {
-                    await axios.post('/api/cart-items', {
+                    await axios.post(`${RAILWAY_API_BASE_URL}/api/cart-items`, {
                         productId: product.id,
                         quantity
                     });
