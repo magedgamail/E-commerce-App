@@ -6,7 +6,7 @@ import { Header } from '../../components/Header.jsx';
 import { ProductGrid } from './ProductGrid.jsx';
 import './HomePage.css';
 
-const RAILWAY_API_BASE_URL = 'https://ecommerce-backend-production-c5c1.up.railway.app';
+const RAILWAY_API_BASE_URL = 'https://ecommerce-backend-production-c5c1.up.railway.app/';
 
 export function HomePage({ cart, loadCart }) {
     const [products, setProducts] = useState ([]);
