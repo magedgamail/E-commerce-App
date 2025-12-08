@@ -35,7 +35,7 @@ export function Product({product, loadCart}) {
             <div className="product-image-container">
                 <img className="product-image"
                 data-testid="product-image"
-                    src={`${RAILWAY_API_BASE_URL}'/'${product.image}`} />
+                    src={`${RAILWAY_API_BASE_URL}/${product.image}`} />
             </div>
 
             <div className="product-name limit-text-to-2-lines">
