@@ -46,7 +46,7 @@ export function CartItemDetails({ cartItem, loadCart }) {
 
     return (
         <>
-            <img className="product-image" src={cartItem.product.image} />
+            <img className="product-image" src={`${backendMainLink}/${cartItem.product.image}`} />
             <div className="cart-item-details">
                 <div className="product-name">{cartItem.product.name}</div>
                 <div className="product-price">
