@@ -30,7 +30,7 @@ export function OrderGrid({ orders, loadCart }) {
                                 return (
                                     <Fragment key={orderProduct.product.id}>
                                         <div className="product-image-container">
-                                            <img src={`${backendMainLink}/images/products/image}`} />
+                                            <img src={`${backendMainLink}/${orderProduct.product.image}`} />
                                         </div>
 
                                         <div className="product-details">
