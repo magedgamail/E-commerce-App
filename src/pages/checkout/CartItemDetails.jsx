@@ -3,9 +3,11 @@ import { formatMoney } from "../../Utils/Money";
 import { useState } from 'react';
 
 export function CartItemDetails({ cartItem, loadCart }) {
+
+    const backendMainLink = 'https://ecommerce-backend-production-c5c1.up.railway.app';
     
     const deleteCartItem = async () => {
-        await axios.delete(`/api/cart-items/${cartItem.productId}`)
+        await axios.delete(`${backendMainLink}/api/cart-items/${cartItem.productId}`)
         await loadCart();
     }
 
@@ -15,7 +17,7 @@ export function CartItemDetails({ cartItem, loadCart }) {
     const updateQuantity = async() => {
         
         if (isUpdatingQuantity){
-            await axios.put(`/api/cart-items${cartItem.productId}`,{
+            await axios.put(`${backendMainLink}/api/cart-items${cartItem.productId}`,{
                 quantity: Number(quantity),
             });
             await loadCart();

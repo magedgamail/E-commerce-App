@@ -9,10 +9,12 @@ import { PaymentSummery } from './PaymentSummery';
 export function CheckoutPage({ cart, loadCart }) {
     const [deliveryOptions, setDeliveryOptions] = useState([]);
     const [paymentSummery, setPaymentSummary] = useState(null);
+    const backendMainLink = 'https://ecommerce-backend-production-c5c1.up.railway.app';
+
     useEffect(() => {
         const fetchCheckoutData = async () => {
 
-        let response = await axios.get('/api/delivery-options?expand=estimatedDeliveryTime')
+        let response = await axios.get(`${backendMainLink}/api/delivery-options?expand=estimatedDeliveryTime`)
         setDeliveryOptions(response.data)
             
 
@@ -24,7 +26,7 @@ export function CheckoutPage({ cart, loadCart }) {
 
     useEffect(() => {
         const fetchPaymentSummary = async () => {
-            let response = await axios.get('/api/payment-summary')
+            let response = await axios.get(`${backendMainLink}/api/payment-summary`)
             
                 setPaymentSummary(response.data)
            

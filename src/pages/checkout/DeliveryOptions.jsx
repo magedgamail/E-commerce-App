@@ -4,6 +4,9 @@ import { formatMoney } from "../../Utils/Money";
 
 
 export function DeliveryOptions({deliveryOptions, cartItem, loadCart}) {
+
+    const backendMainLink = 'https://ecommerce-backend-production-c5c1.up.railway.app';
+
     return (
         <div className="delivery-options">
             <div className="delivery-options-title">
@@ -17,7 +20,7 @@ export function DeliveryOptions({deliveryOptions, cartItem, loadCart}) {
                 }
 
                 const updateDeliveryOptions = async () => {
-                    await axios.put(`/api/cart-items/${cartItem.productId}`,{
+                    await axios.put(`${backendMainLink}/api/cart-items/${cartItem.productId}`,{
                         deliveryOptionId: deliveryOption.id
                     })
                     await loadCart();
