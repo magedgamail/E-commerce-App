@@ -12,10 +12,10 @@ window.axios = axios;
 
 function App() {
   const [cart, setCart] = useState([]);
-  const backendLink = 'https://ecommerce-backend-production-c5c1.up.railway.app';
+  const backendMainLink = 'https://ecommerce-backend-production-c5c1.up.railway.app';
 
   const loadCart = async () => {
-      const response = await axios.get(`${backendLink}/api/cart-items?expand=product`)
+      const response = await axios.get(`${backendMainLink}/api/cart-items?expand=product`)
         setCart(response.data);
     };
 

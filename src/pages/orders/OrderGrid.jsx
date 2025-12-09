@@ -6,6 +6,7 @@ import { OrderHeader } from "./OrderHeader";
 
 
 export function OrderGrid({ orders, loadCart }) {
+    const backendMainLink = 'https://ecommerce-backend-production-c5c1.up.railway.app';
 
 
     return (
@@ -19,7 +20,7 @@ export function OrderGrid({ orders, loadCart }) {
                             {order.products.map((orderProduct) => {
 
                                 const addToCart = async () => {
-                                    await axios.post('/api/cart-items', {
+                                    await axios.post(`${backendMainLink}/api/cart-items`, {
                                         productId: orderProduct.productId,
                                         quantity: 1
                                     })

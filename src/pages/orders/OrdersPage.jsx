@@ -6,10 +6,11 @@ import './OrderPage.css'
 
 export function OrdersPage({ cart, loadCart }) {
     const [orders, setOrders] = useState([]);
+    const backendMainLink = 'https://ecommerce-backend-production-c5c1.up.railway.app';
 
     useEffect(() => {
         const fetchOrdersData = async () => {
-            let response = await axios.get('api/orders?expand=products')
+            let response = await axios.get(`${backendMainLink}api/orders?expand=products`)
             setOrders(response.data);
             
         }
