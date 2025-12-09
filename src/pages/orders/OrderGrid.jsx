@@ -30,12 +30,12 @@ export function OrderGrid({ orders, loadCart }) {
                                 return (
                                     <Fragment key={orderProduct.product.id}>
                                         <div className="product-image-container">
-                                            <img src={`${backendMainLink}/${orderProduct.product.image}`} />
+                                            <img src={`${backendMainLink}/images/products/image}`} />
                                         </div>
 
                                         <div className="product-details">
                                             <div className="product-name">
-                                                
+                                                {orderProduct.product.name}
                                             </div>
                                             <div className="product-delivery-date">
                                                 Arriving on: {dayjs(orderProduct.estimatedDeliveryTimeMs).format('MMMM D')}
