@@ -39,10 +39,11 @@
    website look good on any screen size). This @media
    means when the screen width is 575px or less, different
    styles (inside the {...}) will be applied. */
-@media (max-width: 575px) {
+
+/* @media (max-width: 575px) {
   .checkout-header .checkout-header-left-section {
     width: auto;
-  }
+  } */
 
   .checkout-header .logo {
     display: none;
