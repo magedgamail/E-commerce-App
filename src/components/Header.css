@@ -59,7 +59,7 @@
   }
 }
 /* ##### Edited ######## */
-/* .header .logo-1 {
+.header .logo-1 {
   width: 180px;
   height: 26px;
   color: #fff;
@@ -72,7 +72,19 @@
   font-size: 26px;
   font-weight: 700;
   display: inline;
-} */
+}
+@media (max-width: 675px) {
+  .header .logo-1 {
+    display: none;
+  }
+  .header .mobile-logo-1 {
+    display: block;
+    height: 26px;
+    font-size: 26px;
+    font-weight: bold;
+  }
+  
+}
 /* ##### Edited ######## */
 
 .header .middle-section {
