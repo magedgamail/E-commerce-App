@@ -3,11 +3,7 @@ import CheckoutIcon from '../../assets/images/icons/checkout-lock-icon.png'
 import logo from '../../assets/images/logo.png'
 import MobileLogo from '../../assets/images/mobile-logo.png'
 
-<<<<<<< HEAD
-import './checkoutHeader.css'
-=======
 import './checkoutHeader.css';
->>>>>>> eb19a1ba26d1286334a0a69829a4a22c865c8834
 
 export function CheckoutHeader({cart}) {
     let totalQuantity = 0;
