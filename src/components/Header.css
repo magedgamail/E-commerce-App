@@ -74,7 +74,7 @@
   display: inline;
 }
 @media (min-width: 676px) {
-  .header .mobile-logo {
+  .header .mobile-logo-1 {
     display: none;
   }
 }
