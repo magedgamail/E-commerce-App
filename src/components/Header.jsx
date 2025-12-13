@@ -52,8 +52,8 @@ export function Header( { cart=[] } ) {
                     <div className='logo-1'><div className='m'>M</div>aged</div>
                         {/*<img className="logo"
                             src={ LogoWhite } />*/}
-                        <img className="mobile-logo"
-                            src={ MobileLogoWhite } />
+                        {/* <img className="mobile-logo"
+                            src={ MobileLogoWhite } /> */}
                     </NavLink>
                 </div>
 
