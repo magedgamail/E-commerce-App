@@ -39,56 +39,20 @@
    website look good on any screen size). This @media
    means when the screen width is 575px or less, different
    styles (inside the {...}) will be applied. */
-   
 @media (max-width: 575px) {
   .checkout-header .checkout-header-left-section {
     width: auto;
   }
 
-  /* .checkout-header .logo {
+  .checkout-header .logo {
     display: none;
   }
 
   .checkout-header .mobile-logo {
     display: inline-block;
     height: 26px;
-  } */
-
-  .checkout-header .checkout-logo-1 {
-    width: 180px;
-    height: 26px;
-    color: #198754;
-    text-align: center;
-    font-size: 24px;
-    font-weight: bold;
-    letter-spacing: 1.1px;
-  }
-  .checkout-header .checkout-logo-1 .m {
-    font-size: 26px;
-    font-weight: 700;
-    display: inline;
   }
 }
-/* ##### Edited ######## */
-@media (min-width: 676px) {
-  .checkout-header .checkout-header-left-section .checkout-mobile-logo-1 {
-    display: none;
-  }
-}
-@media (max-width: 675px) {
-  .checkout-header .checkout-header-left-section .checkout-logo-1 {
-    display: none;
-  }
-  .checkout-header .checkout-header-left-section .checkout-mobile-logo-1 {
-    display: block;
-    height: 26px;
-    font-size: 26px;
-    font-weight: bolder;
-    color: white;
-  }
-  
-}
-/* ##### Edited ######## */
 
 .checkout-header .checkout-header-middle-section {
   flex: 1;
