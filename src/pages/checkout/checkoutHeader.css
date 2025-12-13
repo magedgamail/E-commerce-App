@@ -54,7 +54,7 @@
   }
 }
 /* ##### Edited ######## */
-.checkout-header-left-section .chechout-header .chechout-.logo-1 {
+.checkout-header-left-section .chechout-header .chechout-logo-1 {
   width: 180px;
   height: 26px;
   color: #198754;
@@ -69,12 +69,12 @@
   display: inline;
 }
 @media (min-width: 676px) {
-  .checkout-header-left-section .chechout-header  .chechout-.mobile-logo-1 {
+  .checkout-header-left-section .chechout-header  .chechout-mobile-logo-1 {
     display: none;
   }
 }
 @media (max-width: 675px) {
-  .checkout-header-left-section .chechout-header  .chechout-.logo-1 {
+  .checkout-header-left-section .chechout-header  .chechout-logo-1 {
     display: none;
   }
   .checkout-header-left-section .chechout-header  .chechout-mobile-logo-1 {
