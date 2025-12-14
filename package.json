@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://magedgamail.github.io/Front-Try-1/",
+  "homepage": "https://magedgamail.github.io/E-commerce-App/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
