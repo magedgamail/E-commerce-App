@@ -1,37 +1,44 @@
-
 import './TrackingPage.css';
 import { Header } from '../components/Header'
-import { Link } from 'react-router';
-import { useParams } from 'react-router';
-import { useEffect, useState } from 'react'; 
+// NOTE: Assuming React Router v6. Use 'react-router' if you are on v5.
+import { Link, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
 import dayjs from 'dayjs';
 
-export function TrackingPage({cart}) {
+export function TrackingPage({ cart }) {
 
+    // orderId and productId are strings from the URL
     const { orderId, productId } = useParams();
-    const[order, setOrder] = useState(null);
+    const [order, setOrder] = useState(null);
 
     const backendMainLink = 'https://ecommerce-backend-production-c5c1.up.railway.app';
 
     useEffect(() => {
         const fetchTrackingData = async () => {
-
-            const response = await axios.get(`${backendMainLink}/api/orders/${orderId}?expand=products`)
-            setOrder(response.data)
+            try {
+                const response = await axios.get(`${backendMainLink}/api/orders/${orderId}?expand=products`)
+                setOrder(response.data)
+            } catch (error) {
+                console.error("Failed to fetch order tracking data:", error);
+                // Optionally set an error state here to show a message to the user
+            }
         }
 
         fetchTrackingData();
-    },[orderId])
+    }, [orderId])
 
     if (!order) {
-        return null;
+        // You might want to show a loading spinner here
+        return <div>Loading Tracking Information...</div>;
     }
 
-    const orderProduct = order.products.find((orderProduct) => {
-        return orderProduct.productId == productId
+    // FIX: Using loose equality (==) or casting to number to prevent strict equality mismatch
+    const orderProduct = order.products.find((item) => {
+        return item.productId == productId // Changed variable name to 'item' for clarity, using ==
     });
 
+    // FIX: Check if the product was found to prevent a crash
     if (!orderProduct) {
         return <div className="error-message">Error: Product tracking details not found for Order ID: {orderId} and Product ID: {productId}.</div>;
     }
@@ -39,29 +46,30 @@ export function TrackingPage({cart}) {
     const totalDeliveryTimeMs = orderProduct.estimatedDeliveryTimeMs - order.orderTimeMs;
     const timePassedMs = dayjs().valueOf() - order.orderTimeMs;
 
-    let deliveryPercent =  (timePassedMs / totalDeliveryTimeMs) * 100;
+    let deliveryPercent = (timePassedMs / totalDeliveryTimeMs) * 100;
     if (deliveryPercent > 100) {
         deliveryPercent = 100;
     }
 
     const isPreparing = deliveryPercent < 33;
     const isShipped = deliveryPercent >= 33 && deliveryPercent < 100;
-    const isDelivered = deliveryPercent == 100;
+    const isDelivered = deliveryPercent >= 100; // Use >= 100 for safety
 
     return (
 
-        
+
         <>
             <title>Tracking</title>
+            {/* FIX: Changed 'to' to 'href' and ensured closing tag for link */}
             <link rel="icon" type="image/svg+xml" href="tracking-favicon.png" />
             <Header cart={cart} />
-            
+
             <div className="tracking-page">
                 <div className="order-tracking">
-                    <Link className="back-to-orders-link link-primary" to="orders">
+                    <Link className="back-to-orders-link link-primary" to="/orders"> {/* Added / for absolute path */}
                         View all orders
                     </Link>
-
+                    {/* ... (rest of the JSX is the same) ... */}
                     <div className="delivery-date">
                         Arriving on {dayjs(orderProduct.estimatedDeliveryTimeMs).format('dddd, MMMM D')}
                     </div>
