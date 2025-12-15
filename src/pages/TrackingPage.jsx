@@ -8,7 +8,7 @@ import axios from 'axios';
 import dayjs from 'dayjs';
 
 export function TrackingPage({cart}) {
-    
+
     const backendMainLink = 'https://ecommerce-backend-production-c5c1.up.railway.app';
 
     const { orderId, productId } = useParams();
@@ -30,7 +30,7 @@ export function TrackingPage({cart}) {
     }
 
     const orderProduct = order.products.find((orderProduct) => {
-        return orderProduct.productId === productId
+        return orderProduct.productId == productId
     });
 
     const totalDeliveryTimeMs = orderProduct.estimatedDeliveryTimeMs - order.orderTimeMs;
