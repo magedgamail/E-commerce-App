@@ -29,8 +29,12 @@ export function TrackingPage({cart}) {
     }
 
     const orderProduct = order.products.find((orderProduct) => {
-        return orderProduct.productId === productId
+        return orderProduct.productId == productId
     });
+
+    if (!orderProduct) {
+        return <div className="error-message">Error: Product tracking details not found for Order ID: {orderId} and Product ID: {productId}.</div>;
+    }
 
     const totalDeliveryTimeMs = orderProduct.estimatedDeliveryTimeMs - order.orderTimeMs;
     const timePassedMs = dayjs().valueOf() - order.orderTimeMs;
@@ -49,7 +53,7 @@ export function TrackingPage({cart}) {
         
         <>
             <title>Tracking</title>
-            <link rel="icon" type="image/svg+xml" to="tracking-favicon.png" />
+            <link rel="icon" type="image/svg+xml" href="tracking-favicon.png" />
             <Header cart={cart} />
             
             <div className="tracking-page">
